@@ -1,0 +1,16 @@
+% Ispravljen kod
+t = out.d_data.time;
+y = out.d_data.signals.values;
+
+% Preskoči prvi 5%
+idx_start = round(length(y) * 0.05);
+y = y(idx_start:end);
+t = t(idx_start:end);
+
+% Pronađi minimum
+[y_min, idx] = min(y);
+t_min = t(idx);
+
+% Ispis
+fprintf('\nMin rastojanje: %.2f m\n', y_min);
+fprintf('Vreme minimuma: %.2f s\n\n', t_min);
